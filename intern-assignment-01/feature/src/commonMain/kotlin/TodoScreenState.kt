@@ -8,7 +8,6 @@ data class TodoScreenState(
     val currentFilter: TodoFilter = TodoFilter.ALL,
     val allTodos: List<TodoItem> = emptyList(),
 ) {
-    // Вычисляемые свойства для UI, которые автоматически обновляются при изменении allTodos или currentFilter
     val filteredTodos: List<TodoItem>
         get() = when (currentFilter) {
             TodoFilter.ALL -> allTodos

@@ -11,10 +11,7 @@ import kotlin.random.Random
 
 class TodoRepositoryImpl : TodoRepository {
 
-    // Single source of truth для наших данных
     private val _todos = MutableStateFlow<List<TodoItem>>(emptyList())
-
-    // Публичное API доступно только для чтения (реактивная подписка)
     override val todos: Flow<List<TodoItem>> = _todos.asStateFlow()
 
     override suspend fun addTodo(text: String) {
@@ -48,7 +45,6 @@ class TodoRepositoryImpl : TodoRepository {
         }
     }
 
-    // Простая генерация ID для in-memory реализации
     private fun generateId(): String {
         return Random.nextLong().toString()
     }

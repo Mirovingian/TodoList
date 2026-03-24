@@ -1,4 +1,4 @@
-package org.example.project.feature.ViewModel
+package org.example.project.feature.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,7 +19,6 @@ class TodoViewModel(
     val state: StateFlow<TodoScreenState> = _state.asStateFlow()
 
     init {
-        // Подписываемся на изменения в репозитории при создании ViewModel
         viewModelScope.launch {
             repository.todos.collect { todosList ->
                 _state.update { currentState ->
@@ -38,7 +37,7 @@ class TodoViewModel(
         if (text.isNotBlank()) {
             viewModelScope.launch {
                 repository.addTodo(text)
-                _state.update { it.copy(inputText = "") } // Очищаем поле ввода после добавления
+                _state.update { it.copy(inputText = "") }
             }
         }
     }

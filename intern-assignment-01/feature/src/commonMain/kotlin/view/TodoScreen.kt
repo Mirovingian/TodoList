@@ -1,4 +1,4 @@
-package org.example.project.feature.View
+package org.example.project.feature.view
 
 
 import androidx.compose.foundation.layout.*
@@ -12,18 +12,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import domain.TodoFilter
-import org.example.project.feature.ViewModel.TodoViewModel
+import org.example.project.feature.viewmodel.TodoViewModel
 
 
 @Composable
 fun TodoScreen(
     viewModel: TodoViewModel,
 ) {
-    // Подписываемся на StateFlow. При любом изменении произойдет recomposition этого экрана.
     val state by viewModel.state.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-        // Поле ввода и кнопка добавления
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -42,7 +40,6 @@ fun TodoScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Статистика
         Text(
             text = "Задачи: ${state.completedCount} выполнено / ${state.totalCount} всего",
             style = MaterialTheme.typography.labelLarge,
@@ -63,7 +60,6 @@ fun TodoScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Список задач
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(items = state.filteredTodos, key = { it.id }) { todo ->
                 Row(
