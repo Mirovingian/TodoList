@@ -1,48 +1,72 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
+# Kotlin Multiplatform Todo List
+## 1. Описание задания
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+**Цель проекта:** Разработка кроссплатформенного приложения «Список задач» (Todo List) с использованием Kotlin Multiplatform (KMP) и архитектурного паттерна MVVM.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+**Реализованный функционал:**
+* Добавление новых задач.
+* Удаление существующих задач.
+* Изменение статуса задачи (выполнено / не выполнено) с помощью чекбоксов.
+* Фильтрация списка (Все / Активные / Выполненные).
+* Динамический подсчет количества выполненных и общего числа задач.
 
-### Build and Run Android Application
-
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
-
-### Build and Run Desktop (JVM) Application
-
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
-
-### Build and Run iOS Application
-
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+**Технологический стек:**
+* **Язык и платформа:** Kotlin Multiplatform (Android, iOS, Desktop)
+* **UI-фреймворк:** Compose Multiplatform
+* **Архитектура:** MVVM (Model-View-ViewModel) + StateFlow
+* **Внедрение зависимостей (DI):** Koin
+* **Асинхронная работа:** Kotlinx Coroutines
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## 2. Скриншоты экрана
+
+<img width="312" height="693" alt="image" src="https://github.com/user-attachments/assets/6280fde5-8280-4a58-a371-f5032793078f" /><img width="312" height="694" alt="image" src="https://github.com/user-attachments/assets/353a318d-c824-4b3c-a3cf-f74e66c25d20" />
+<img width="313" height="692" alt="image" src="https://github.com/user-attachments/assets/124e173f-79bf-464e-b0e9-d4cc49bd16c3" />
+
+
+---
+
+## 3. Ссылка на видео
+
+* Посмотрите демонстрацию работы приложения:
+📺 https://www.youtube.com/shorts/s0IKR7uOm5s
+---
+
+## 4. Ссылка на APK
+
+* Готовую сборку для Android можно скачать в разделе Releases:
+📦 https://github.com/Mirovingian/TodoList/releases/tag/v1.0.0
+
+---
+
+## 5. Инструкция по запуску
+
+### Требования
+* **JDK 17 или 21** (обязательно настройте переменную `JAVA_HOME`).
+* **Android Studio** (последней версии, например, Ladybug).
+* **Xcode** (только если планируете запуск под iOS).
+
+### Сборка и запуск
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/Mirovingian/TodoList.git
+   ```
+2. Откройте проект в Android Studio.
+
+3. Дождитесь завершения Gradle Sync (пока не скачаются все зависимости).
+
+4. Выберите нужную конфигурацию запуска (Run Configuration) на верхней панели.
+
+5. Нажмите кнопку Run (зеленый треугольник).
+
+### Сборка APK
+1. Введите команду:
+ ```bash
+   ./gradlew :composeApp:assembleDebug
+   ```
+2. APK будет находиться в: composeApp/build/outputs/apk/release/
+
+## 6. Использованные ИИ-инструменты
+
+* Gemini
