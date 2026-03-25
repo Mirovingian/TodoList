@@ -42,12 +42,15 @@
 
 ## 5. Инструкция по запуску
 
-### Требования
+### 1. Загрузка и установка apk приложения на android устройство
+* Скачайте актуальную версию приложения releases и установить на android устройство
+
+### 2. Сборка и запуск
+#### Требования
 * **JDK 17 или 21** (обязательно настройте переменную `JAVA_HOME`).
 * **Android Studio** (последней версии, например, Ladybug).
 * **Xcode** (только если планируете запуск под iOS).
 
-### Сборка и запуск
 1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/Mirovingian/TodoList.git
@@ -63,7 +66,7 @@
 ### Сборка APK
 1. Введите команду:
  ```bash
-   ./gradlew :composeApp:assembleDebug
+   ./gradlew :composeApp:assembleRelease
    ```
 2. APK будет находиться в: composeApp/build/outputs/apk/release/
 
